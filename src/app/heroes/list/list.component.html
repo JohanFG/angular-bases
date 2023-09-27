@@ -1,0 +1,31 @@
+<!--
+  Aqui podemos ver como utilizar el ng-template, para mostrar o no algo, con respecto a la condicion que definimos en el div, con ng-if else. Es algo muy potente, ya que solo con el ng-if, tendriamos que hacer dos comparaciones en ambos componentes. Lo que podria afectar a nuestra distribucion de la pagina, en el momento que se muestren o no. En cambio, con el ng-template, no se crea fisicamente, es solo un blinding esperando que algo se cumpla.
+-->
+
+
+<h3> Listado de Heroes </h3>
+
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3> Heroe Borrado <small class="text-danger"> {{ deletedHero }} </small> </h3>
+</div>
+
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger">
+  Borrar Ultimo Heore
+</button>
+
+
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
+  <li class="list-group-item"></li>
+  <li class="list-group-item"></li>
+
+</ul>

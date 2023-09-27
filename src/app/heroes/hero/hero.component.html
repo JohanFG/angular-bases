@@ -1,0 +1,32 @@
+<!-- Para acceder a variables que definimos en el archivo de typescript se usa {{  }}, en las directivas de angular como ngif no es necesario-->
+
+<h1> {{ name }}</h1>
+
+<dl>
+  <td> Nombre: </td>
+  <dd> {{ name }}</dd>
+
+  <td> Edad: </td>
+  <dd> {{ age }}</dd>
+
+  <td> Metodo: </td>
+  <dd> {{ getHeroDescription() }}</dd>
+
+  <td> Capitalizado: </td>
+  <dd> {{ capitalizedName }}</dd>
+</dl>
+
+<!-- Aqui usamos una directiva que se incluyen en el modulo common de angular, sirve para ingresar condiciones, que segun su resultado (true, false), el elemento del DOM se presenta o no, todo esto esta dentro del ciclo de deteccion de angular, y junto con el archivo de typescript, los cambios de esas variables funcionan correctamente  -->
+<button
+  *ngIf="name !== 'Spiderman'"
+  (click)="changeHero()"
+  class="btn btn-primary mx-2">
+  Cambiar nombre
+</button>
+
+<button
+  *ngIf="age !== 20"
+  (click)="changeAge()"
+  class="btn btn-primary">
+  Cambiar edad
+</button>
