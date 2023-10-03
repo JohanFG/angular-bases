@@ -1,0 +1,38 @@
+<h4>Agregar personaje</h4>
+
+<!--
+  Algo importante en esta clase del ngModel.
+
+  SIEMPRE QUE SE NECESITE IMPORTAR ALGUNA DEPENDENCIA QUE TENGA LA PALABRA MODULE, se realiza en el archivo .module de ese modulo, especificamente en los imports.
+
+  Por ejemplo el ngModel viene de angular/forms
+
+  * este ngModel utiliza [()], porque esta haciendo uso del two data binding, que significa que si se modifica el objeto que esta en la clase, pues se modificara aqui en el html, y al contrario igual, si se modifica en el html, tambien modifica el objeto character que esta en la clase de typescript asociada.
+
+  * es necesario especificar la propiedad name en ambos inputs, por lo que es un formulario.
+-->
+
+<form class="row" (ngSubmit)="emitCharacter()">
+  <input
+    class="form-control mb-2"
+    [(ngModel)]="character.name"
+    name="name"
+    type="text"
+    placeholder="Nombre del personaje">
+
+  <input
+    class="form-control mb-2"
+    [(ngModel)]="character.power"
+    name="power"
+    type="number"
+    placeholder="Poder">
+
+  <button type="submit" class="btn btn-primary">
+    Agregar
+  </button>
+  
+  <!--
+    <pre> {{ character | json }} </pre>
+  -->
+
+</form>

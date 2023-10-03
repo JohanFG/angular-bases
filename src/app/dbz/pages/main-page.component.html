@@ -1,0 +1,21 @@
+<h1> Main page DBZ </h1>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!--
+      Recordemos que aqui estamos accediendo al list.component, entonces para enviar algo al hijo, lo hacemos mediante [], en el cual aparecera el nombre que definimos que fue characterList y entre comillas enviamos el arreglo de characters.
+    -->
+    <dbz-list (onDelete)="onDeleteCharacter($event)" [characterList]="characters"></dbz-list>
+  </div>
+
+  <div class="col">
+
+    <!--
+      IMPORTANTE: Aqui estamos escuhando lo que esta emitiendo el hijo hacia el padre. Cuando estamos haciendo uso de eventos usamos (), y cuando estamos usando atributos como es el caso del Input de arriba usamos [].
+
+      Tambien para especificar que parametro le vamos a enviar, usamos $event, ya que asi se le especifica el objeto character que esta emitiendo el hijo.
+    -->
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
+  </div>
+</div>
